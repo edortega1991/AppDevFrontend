@@ -1,0 +1,131 @@
+<p>¿Qué valores desea graficar?</p>
+<div class="row">
+    <div class="col-md-2">
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="customCheck1" [(ngModel)]="temperatura" name="temperatura">
+            <label class="custom-control-label" for="customCheck1">Temperatura</label>
+        </div>
+    </div>
+
+    <div class="col-md-2">
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="customCheck2" [(ngModel)]="humedad" name="humedad">
+            <label class="custom-control-label" for="customCheck2">Humedad</label>
+        </div>
+    </div>
+
+    <div class="col-md-2">
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="customCheck3" [(ngModel)]="nivel" name="nivel">
+            <label class="custom-control-label" for="customCheck3">Nivel</label>
+        </div>
+    </div>
+
+    <div class="col-md-2">
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="customCheck4" [(ngModel)]="indice" name="indice">
+            <label class="custom-control-label" for="customCheck4">Índice Ambiental</label>
+        </div>
+    </div>
+
+    <div class="col-md-2">
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="customCheck5" [(ngModel)]="todas" name="todas">
+            <label class="custom-control-label" for="customCheck5">Todas</label>
+        </div>
+    </div>
+
+</div>
+<br>
+
+<div class="row">
+    <div class="col-md-6 mb-4" *ngIf="temperatura">
+        <h5 class="text-center">Gráfica de temperatura</h5>
+        <div class="flex">
+            <div class="flex-item">
+                <div style="display: block;">
+                    <canvas baseChart width="400" height="300"
+                        [datasets]="lineChartTemperatura"
+                        [labels]="lineChartLabels"
+                        [options]="lineChartOptions"
+                        [colors]="lineChartColorsTemperatura"
+                        [legend]="lineChartLegend"
+                        [chartType]="lineChartType"
+                    ></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4" *ngIf="humedad">
+        <h5 class="text-center">Gráfica de humedad</h5>
+        <div class="flex">
+            <div class="flex-item">
+                <div style="display: block;">
+                    <canvas baseChart width="400" height="300"
+                        [datasets]="lineChartHumedad"
+                        [labels]="lineChartLabels"
+                        [options]="lineChartOptions"
+                        [colors]="lineChartColorsHumedad"
+                        [legend]="lineChartLegend"
+                        [chartType]="lineChartType"
+                    ></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4" *ngIf="nivel">
+        <h5 class="text-center">Gráfica de nivel</h5>
+        <div class="flex">
+            <div class="flex-item">
+                <div style="display: block;">
+                    <canvas baseChart width="400" height="300"
+                        [datasets]="lineChartNivel"
+                        [labels]="lineChartLabels"
+                        [options]="lineChartOptions"
+                        [colors]="lineChartColorsNivel"
+                        [legend]="lineChartLegend"
+                        [chartType]="lineChartType"
+                    ></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4" *ngIf="indice">
+        <h5 class="text-center">Gráfica de índice ambiental</h5>
+        <div class="flex">
+            <div class="flex-item">
+                <div style="display: block;">
+                    <canvas baseChart width="400" height="300"
+                        [datasets]="lineChartIndiceAmbiental"
+                        [labels]="lineChartLabels"
+                        [options]="lineChartOptions"
+                        [colors]="lineChartColorsIndiceAmbiental"
+                        [legend]="lineChartLegend"
+                        [chartType]="lineChartType"
+                    ></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4" *ngIf="todas">
+        <h5 class="text-center">Todas las gráficas</h5>
+        <div class="flex">
+            <div class="flex-item">
+                <div style="display: block;">
+                    <canvas baseChart width="400" height="300"
+                        [datasets]="lineChartData"
+                        [labels]="lineChartLabels"
+                        [options]="lineChartOptions"
+                        [colors]="lineChartColors"
+                        [legend]="lineChartLegend"
+                        [chartType]="lineChartType"
+                    ></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

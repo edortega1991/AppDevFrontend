@@ -1,0 +1,120 @@
+<h1>Data App</h1>
+<hr>
+
+<div class="col-right text-right">
+    <button [routerLink]="['/graficas']" class="btn btn-lg btn-danger">Ver gráficas...</button>
+</div>
+
+<p>Seleccione los datos que desea visualizar:</p>
+<div class="row">
+    <div class="col-md-3">
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="customCheck1" [(ngModel)]="temperatura" name="temperatura">
+            <label class="custom-control-label" for="customCheck1">Temperatura</label>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="customCheck2" [(ngModel)]="humedad" name="humedad">
+            <label class="custom-control-label" for="customCheck2">Humedad</label>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="customCheck3" [(ngModel)]="nivel" name="nivel">
+            <label class="custom-control-label" for="customCheck3">Nivel</label>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="customCheck4" [(ngModel)]="indice" name="indice">
+            <label class="custom-control-label" for="customCheck4">Índice Ambiental</label>
+        </div>
+    </div>
+
+</div>
+<br>
+
+<div class="row">
+    <div class="col-md-6 mb-3" *ngIf="temperatura">
+        <h3>Datos de temperatura</h3>
+        <div class="scroll">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th class="size" scope="col">#</th>
+                        <th scope="col">Temperatura</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let temperatura of arrData; let i= index">
+                        <th>{{i+1}}</th>
+                        <td>{{temperatura.Temperatura}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div class="col-md-6 mb-3" *ngIf="humedad">
+        <h3>Datos de humedad</h3>
+        <div class="scroll">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th class="size" scope="col">#</th>
+                        <th scope="col">Humedad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let humedad of arrData; let i= index">
+                        <th>{{i+1}}</th>
+                        <td>{{humedad.Humedad}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-6 mb-3" *ngIf="nivel">
+        <h3>Datos de nivel</h3>
+        <div class="scroll">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th class="size" scope="col">#</th>
+                        <th scope="col">Nivel</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let nivel of arrData; let i= index">
+                        <th>{{i+1}}</th>
+                        <td>{{nivel.Nivel}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-6 mb-3" *ngIf="indice">
+        <h3>Datos de indice ambiental</h3>
+        <div class="scroll">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th class="size" scope="col">#</th>
+                        <th scope="col">Indice ambiental</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let indice of arrData; let i = index">
+                        <th>{{i+1}}</th>
+                        <td>{{indice.IndiceAmbiental}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

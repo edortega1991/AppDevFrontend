@@ -3,6 +3,7 @@ import { DatosModel } from "../../models/datos.model";
 import { DataService } from 'src/app/services/data.service';
 import { Subscription, interval } from 'rxjs';
 
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -24,11 +25,12 @@ export class DatosComponent implements OnInit {
 
   private updateSubscription: Subscription;
   
-  constructor(private dataService:DataService) { }
+  constructor(private dataService:DataService,
+              private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    debugger;
-    this.updateSubscription = interval(10000).subscribe(
+    
+    this.updateSubscription = interval(60000).subscribe(
       (val) => { 
         console.log('entro: '+ new Date);
         this.dataService.reloadData().subscribe(resp =>{
@@ -43,10 +45,11 @@ export class DatosComponent implements OnInit {
 
   }
 
-  getDatos() {
+  public getDatos() {
     this.dataService.getDatos().subscribe(resp =>{
-      debugger;
+      
       console.log(resp);
+      this.toastr.success('Se ha cargado los datos exitosamente','Datos');
       this.arrData = resp.data;
     });
   }

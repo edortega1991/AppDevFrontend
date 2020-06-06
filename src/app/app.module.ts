@@ -9,6 +9,11 @@ import { DatosComponent } from './components/datos/datos.component';
 import { GraficasComponent } from './components/graficas/graficas.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
+//Toast
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+ 
+import { ToastrModule } from 'ngx-toastr';
+
 //Graficos
 import { ChartsModule } from 'ng2-charts';
 
@@ -24,7 +29,9 @@ import { ChartsModule } from 'ng2-charts';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ChartsModule
+    ChartsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot() // ToastrModule adde
   ],
   providers: [],
   bootstrap: [AppComponent]

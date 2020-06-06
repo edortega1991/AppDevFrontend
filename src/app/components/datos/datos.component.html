@@ -2,7 +2,8 @@
 <hr>
 
 <div class="col-right text-right">
-    <button [routerLink]="['/graficas']" class="btn btn-lg btn-danger">Ver gráficas...</button>
+    <button [routerLink]="['/graficas']" class="btn btn-lg btn-danger mr-1"><i class="fa fa-cog "></i> Ver gráficas...</button>
+    <button (click)="getDatos()" class="btn btn-lg btn-info"> <i class="fa fa-sync "></i> Refresh</button>
 </div>
 
 <p>Seleccione los datos que desea visualizar:</p>

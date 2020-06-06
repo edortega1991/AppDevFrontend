@@ -5,6 +5,7 @@ import { Color, BaseChartDirective, Label } from 'ng2-charts';
 import { DatosModel } from "../../models/datos.model";
 import { DataService } from 'src/app/services/data.service';
 import { Subscription, interval } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-graficas',
@@ -145,12 +146,13 @@ export class GraficasComponent implements OnInit {
 
   private updateSubscription: Subscription;
   
-  constructor(private dataService:DataService) {    
+  constructor(private dataService:DataService,
+              private toastr:ToastrService) {    
 
   }
 
   ngOnInit(): void {
-    this.updateSubscription = interval(25000).subscribe(
+    this.updateSubscription = interval(60000).subscribe(
       (val) => { 
         console.log('grafica: '+ new Date);
         this.dataService.reloadData().subscribe(resp =>{
@@ -167,8 +169,9 @@ export class GraficasComponent implements OnInit {
   }
 
   getData(){
+
     this.dataService.getDatos().subscribe(resp=>{
-      debugger;
+      this.toastr.success('Se cargaron los datos correctamente','Datos de gráficas');
       let arrTem: number[] =[];
       let arrHum: number[] =[];
       let arrNiv: number[] =[];
